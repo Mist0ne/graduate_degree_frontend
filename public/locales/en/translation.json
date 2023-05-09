@@ -1,0 +1,34 @@
+{
+  "header": {
+    "appTitle": "Malicious checker",
+    "/form": "Upload new files",
+    "/checks": "Statistic",
+    "light": "light",
+    "dark": "dark",
+    "ru": "рус",
+    "en": "en"
+  },
+  "mainPage": {
+    "title": "Malicious checker",
+    "subtitle": "GUI demonstrating how the nested content filter works",
+    "using": {
+      "title": "Cookbook",
+      "steps": {
+        "1": {
+          "title": "Upload files",
+          "subtitle": "Use the file upload form to check for vulnerabilities"
+        },
+        "2": {
+          "title": "Explore the results",
+          "subtitle": "Check statistics are displayed on the \"Statistics\" page"
+        },
+        "3": {
+          "title": "Use for your own solutions",
+          "subtitle": "Integrate a microservice into your project"
+        }
+      },
+      "UploadButton": "Upload file",
+      "GitHubButton": "Go to github"
+    }
+  }
+}
