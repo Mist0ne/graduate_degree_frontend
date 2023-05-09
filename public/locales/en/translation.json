@@ -30,5 +30,13 @@
       "UploadButton": "Upload file",
       "GitHubButton": "Go to github"
     }
+  },
+  "fileUploadPage": {
+    "title": "File upload form",
+    "uploader": {
+      "uploadedList": "List of uploaded files:",
+      "nothingToShow": "You haven't uploaded anything yet"
+    },
+    "send": "Send"
   }
 }

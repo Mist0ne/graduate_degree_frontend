@@ -30,5 +30,13 @@
       "UploadButton": "Загрузить файл",
       "GitHubButton": "Перейти на гитхаб"
     }
+  },
+  "fileUploadPage": {
+    "title": "Форма загрузки файлов",
+    "uploader": {
+      "uploadedList": "Список загруженных файлов:",
+      "nothingToShow": "Вы еще ничего не загрузили"
+    },
+    "send": "Отправить"
   }
 }
