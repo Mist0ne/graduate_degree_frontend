@@ -3,6 +3,7 @@ import {useState} from "react";
 import {FileUploader} from "react-drag-drop-files";
 import {useTranslation} from "react-i18next";
 import Button from "@mui/material/Button";
+import axiosWrapper from "../../utils/axios";
 
 
 const FileUploadPage = () => {
@@ -21,8 +22,20 @@ const FileUploadPage = () => {
         setFiles([...map.values()]);
     };
 
+    const successSubmit = (data) => {
+        console.dir(data);
+    };
+
+    const errorSubmit = () => {
+        alert(321);
+    };
+
     const formSubmit = (e) => {
-        console.log(e);
+        e.preventDefault();
+
+        axiosWrapper('post', 'filecheck', {
+                files: files
+            }, successSubmit, errorSubmit);
     };
 
     return <Container
