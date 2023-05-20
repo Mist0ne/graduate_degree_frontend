@@ -18,7 +18,7 @@ const MainPage = () => {
     }, [activeStep]);
 
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{pb: 10}}>
             <Box sx={{display: 'flex', flexFlow: 'column nowrap', animation: 'show 2s', marginTop: 6}}>
                 <Typography
                     variant='h3'
@@ -39,7 +39,7 @@ const MainPage = () => {
                 animation: 'show 4s',
                 maxWidth: "sm",
                 margin: 'auto',
-                marginTop: 12
+                marginTop: 8
             }}>
                 <Typography
                     variant='h4'
@@ -54,12 +54,12 @@ const MainPage = () => {
                             setActiveStep(Number(step - 1))
                         }}>
                             <StepLabel>
-                                <Typography variant='h6'>
+                                <Typography variant='h7'>
                                     {t(`mainPage.using.steps.${step}.title`)}
                                 </Typography>
                             </StepLabel>
                             <StepContent>
-                                <Typography variant='h7'>
+                                <Typography variant='h8'>
                                     {t(`mainPage.using.steps.${step}.subtitle`)}
                                 </Typography>
                             </StepContent>
@@ -74,11 +74,17 @@ const MainPage = () => {
                 display: 'flex',
                 justifyContent: 'space-around'
             }}>
-                <Button variant="contained" size="large" onClick={() => document.querySelector("a[href='/form']").click()}>
-                    {t(`mainPage.using.UploadButton`)}
+                <Button variant="contained" size="large"
+                        onClick={() => document.querySelector("a[href='/form']").click()}>
+                    <Typography variant="h6">
+                        {t(`mainPage.using.UploadButton`)}
+                    </Typography>
                 </Button>
-                <Button variant="contained" size="large" onClick={() => window.open('https://github.com/michelcrypt4d4mus/pdfalyzer', '_blank')}>
-                    {t(`mainPage.using.GitHubButton`)}
+                <Button variant="contained" size="large"
+                        onClick={() => window.open('https://github.com/michelcrypt4d4mus/pdfalyzer', '_blank')}>
+                    <Typography variant="h6">
+                        {t(`mainPage.using.GitHubButton`)}
+                    </Typography>
                 </Button>
             </Box>
         </Container>

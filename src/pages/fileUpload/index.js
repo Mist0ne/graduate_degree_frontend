@@ -22,20 +22,21 @@ const FileUploadPage = () => {
         setFiles([...map.values()]);
     };
 
-    const successSubmit = (data) => {
-        console.dir(data);
+    const successSubmit = () => {
+        alert('files uploaded on server');
+        setFiles([]);
     };
 
     const errorSubmit = () => {
-        alert(321);
+        alert('something went wrong');
     };
 
     const formSubmit = (e) => {
         e.preventDefault();
 
         axiosWrapper('post', 'filecheck', {
-                files: files
-            }, successSubmit, errorSubmit);
+            files: files
+        }, successSubmit, errorSubmit);
     };
 
     return <Container
@@ -51,7 +52,7 @@ const FileUploadPage = () => {
                     multiple={true}
                     required={true}
                     handleChange={handleChange}
-                    name="files"
+                    name="files[]"
                     types={fileTypes}
                 />
                 <Typography variant="h5" sx={{paddingTop: 4}}>
@@ -63,7 +64,9 @@ const FileUploadPage = () => {
             </Box>
             <Box sx={{display: 'flex', flexFlow: 'column nowrap', alignItems: 'center', paddingY: 6}}>
                 <Button type="submit" size="large" variant="contained">
-                    {t('fileUploadPage.send')}
+                    <Typography variant="h6">
+                        {t('fileUploadPage.send')}
+                    </Typography>
                 </Button>
             </Box>
         </form>

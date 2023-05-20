@@ -1,4 +1,4 @@
-import {AppBar, Box, Container, Switch, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Container, Switch, Toolbar, Typography, useMediaQuery} from "@mui/material";
 import {useContext} from "react";
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
@@ -6,12 +6,14 @@ import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import PestControlRoundedIcon from '@mui/icons-material/PestControlRounded';
 import {ThemeContext} from "../../App";
 import {NavLink} from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 
 const Header = () => {
     const [theme, toggleTheme] = useContext(ThemeContext);
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
+
+    const smallDisplay = useMediaQuery('(max-width:1200px)');
 
     const pages = [
         {
@@ -31,15 +33,26 @@ const Header = () => {
             <Container maxWidth="xxl">
                 <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Box sx={{display: 'flex', alignItems: 'center', mr: 8}}>
-                            <PestControlRoundedIcon sx={{display: {xs: 'none', sm: 'none', md: 'flex'}, mr: 1}}/>
-                            <NavLink to="/" style={{textDecoration: 'none', color: 'inherit'}}>
-                                <Typography
-                                    variant="h4"
-                                    noWrap
-                                >
-                                    {t('header.appTitle')}
-                                </Typography>
+                        <Box sx={{mr: 4}}>
+                            <NavLink to="/" style={{
+                                textDecoration: 'none',
+                                color: 'inherit',
+                                display: 'flex',
+                                alignItems: 'center',
+                                mr: 8,
+                                gap: 20
+                            }}>
+                                <PestControlRoundedIcon sx={{display: {xs: 'none', sm: 'none', md: 'flex'}}}/>
+                                {
+                                    !smallDisplay
+                                        ? <Typography
+                                            variant="h4"
+                                            noWrap
+                                        >
+                                            {t('header.appTitle')}
+                                        </Typography>
+                                        : null
+                                }
                             </NavLink>
                         </Box>
                         <Box sx={{display: 'flex'}}>

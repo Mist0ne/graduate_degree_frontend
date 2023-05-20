@@ -33,6 +33,49 @@ const App = () => {
         },
     });
 
+    [darkTheme, lightTheme].forEach((theme) => {
+        theme.typography.h3 = {
+            [theme.breakpoints.up('lg')]: {
+                fontSize: '2.5rem',
+            },
+            [theme.breakpoints.down('lg')]: {
+                fontSize: '5rem',
+            },
+        };
+        theme.typography.h4 = {
+            [theme.breakpoints.up('lg')]: {
+                fontSize: '2.125rem',
+            },
+            [theme.breakpoints.down('lg')]: {
+                fontSize: '4rem',
+            },
+        };
+        theme.typography.h5 = {
+            [theme.breakpoints.up('lg')]: {
+                fontSize: '1.75rem',
+            },
+            [theme.breakpoints.down('lg')]: {
+                fontSize: '3rem',
+            },
+        };
+        theme.typography.h7 = {
+            [theme.breakpoints.up('lg')]: {
+                fontSize: '1.5rem',
+            },
+            [theme.breakpoints.down('lg')]: {
+                fontSize: '2.5rem',
+            },
+        };
+        theme.typography.h8 = {
+            [theme.breakpoints.up('lg')]: {
+                fontSize: '1.25rem',
+            },
+            [theme.breakpoints.down('lg')]: {
+                fontSize: '2rem',
+            },
+        };
+    })
+
     const [theme, setTheme] = useState(darkTheme);
     const toggleTheme = () => {
         setTheme((currentTheme) => (currentTheme.palette.mode === "light" ? darkTheme : lightTheme));
