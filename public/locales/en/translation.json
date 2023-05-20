@@ -38,5 +38,19 @@
       "nothingToShow": "You haven't uploaded anything yet"
     },
     "send": "Send"
+  },
+  "statisticPage": {
+    "title": "Here you can see the statistics of scanned files",
+    "nothingToShow": "You have not uploaded any files yet",
+    "allowed": "Allowed to use",
+    "details": "Details",
+    "statuses": {
+      "unknownFile": "Unknown file",
+      "inProgress": "In progress",
+      "true": "Yes",
+      "false": "No"
+    },
+    "downloadJsonButton": "Click here to download detailed report as *.json",
+    "noDetails": "No details"
   }
 }
