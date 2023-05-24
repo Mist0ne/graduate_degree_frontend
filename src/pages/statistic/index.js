@@ -11,19 +11,24 @@ const StatisticPage = () => {
         {
             field: 'fileId',
             headerName: 'ID',
-            width: 450
+            width: 150
+        },
+        {
+            field: 'name',
+            headerName: t('statisticPage.fileName'),
+            width: 300
         },
         {
             field: 'checkResult',
             headerName: t('statisticPage.allowed'),
-            width: 250,
+            width: 240,
             valueGetter: (params) => t(`statisticPage.statuses.${params.value}`)
         },
         {
             field: 'checkDetails',
             headerName: t('statisticPage.details'),
             sortable: false,
-            width: 400,
+            width: 410,
             valueGetter: (params) =>
                 params.value
                     ? t('statisticPage.downloadJsonButton')
@@ -47,23 +52,26 @@ const StatisticPage = () => {
     const dataProcessing = (data) => {
         let newFiles = [];
         Object.keys(data).forEach((key, index) => {
-            if (!key.includes('_results') && typeof data[key] === 'boolean') {
+            if (data[key].status === 'SUCCESS') {
                 newFiles.push({
                     id: index + 1,
-                    fileId: key,
-                    checkResult: data[key],
-                    checkDetails: data[`${key}_results`],
+                    name: data[key].data.name,
+                    fileId: data[key].data.uuid,
+                    checkResult: data[key].data.allowed,
+                    checkDetails: data[key].data.results,
                 });
-            } else if (data[key] === 'in progress') {
+            } else if (data[key].status === 'PENDING') {
                 newFiles.push({
                     id: index + 1,
+                    name: '-',
                     fileId: key,
                     checkResult: 'inProgress',
                     checkDetails: null,
                 });
-            } else if (data[key] === 'unknown task id') {
+            } else if (data[key].status === 'unknown task id') {
                 newFiles.push({
                     id: index + 1,
+                    name: '-',
                     fileId: key,
                     checkResult: 'unknownFile',
                     checkDetails: null,

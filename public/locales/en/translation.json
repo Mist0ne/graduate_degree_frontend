@@ -42,6 +42,7 @@
   "statisticPage": {
     "title": "Here you can see the statistics of scanned files",
     "nothingToShow": "You have not uploaded any files yet",
+    "fileName": "Filename",
     "allowed": "Allowed to use",
     "details": "Details",
     "statuses": {
