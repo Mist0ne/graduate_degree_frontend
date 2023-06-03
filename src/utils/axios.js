@@ -4,7 +4,7 @@ import {API_SERVER} from "../config/constant";
 
 const axiosInstance = axios.create({
     baseURL: API_SERVER,
-    timeout: 1000,
+    timeout: 10000,
     headers: {
         "Content-Type": "multipart/form-data",
     },
